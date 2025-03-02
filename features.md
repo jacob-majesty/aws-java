@@ -1,3 +1,5 @@
+* AWS Books: https://drive.google.com/drive/folders/19D5Uoafi9hmAy6E3ivAN7rR0vbg4_SN3
+
 I - **Amazon EC2 (Elastic Compute Cloud)** is a core service provided by **Amazon Web Services (AWS)** that allows you to launch and manage **virtual servers** (called instances) in the cloud. It provides resizable compute capacity, meaning you can easily scale up or down based on your application's needs.
 
 ### Key Features of EC2:
