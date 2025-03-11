@@ -213,3 +213,124 @@ III - **Amazon RDS (Relational Database Service)** is a managed database service
 - **Amazon Redshift**: A data warehouse for analytics and big data.
 
 ---
+
+---
+
+IV - **ALB (Application Load Balancer)** is a fully managed load balancing service provided by AWS as part of its Elastic Load Balancing (ELB) offering. It is designed to distribute incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, and Lambda functions, to ensure high availability, fault tolerance, and scalability for your applications.
+
+---
+
+### **Key Features of ALB**
+1. **Layer 7 Load Balancing**:
+   - Operates at the application layer (HTTP/HTTPS) and can route traffic based on content, such as URL paths, hostnames, or headers.
+
+2. **Target Groups**:
+   - Routes traffic to specific groups of targets (e.g., EC2 instances, Lambda functions, or IP addresses) based on rules you define.
+
+3. **Support for Multiple Protocols**:
+   - Supports HTTP, HTTPS, and WebSocket protocols.
+
+4. **Advanced Routing**:
+   - Allows you to configure rules to route traffic based on:
+     - URL paths (e.g., `/api`, `/images`).
+     - Hostnames (e.g., `api.example.com`, `app.example.com`).
+     - Query parameters or headers.
+
+5. **SSL/TLS Termination**:
+   - Handles SSL/TLS decryption, offloading the encryption/decryption workload from your backend servers.
+
+6. **Integration with AWS Services**:
+   - Works seamlessly with other AWS services like EC2, ECS, Lambda, CloudWatch, and AWS WAF (Web Application Firewall).
+
+7. **Health Checks**:
+   - Monitors the health of your targets and routes traffic only to healthy instances.
+
+8. **Scalability**:
+   - Automatically scales to handle varying traffic loads.
+
+9. **Sticky Sessions**:
+   - Supports session affinity (sticky sessions) to ensure requests from the same client are routed to the same target.
+
+10. **Cross-Zone Load Balancing**:
+    - Distributes traffic evenly across all targets in all Availability Zones.
+
+---
+
+### **How ALB Works**
+1. **Create an ALB**:
+   - Define listeners (e.g., HTTP on port 80 or HTTPS on port 443).
+   - Configure target groups and routing rules.
+
+2. **Register Targets**:
+   - Add EC2 instances, containers, or Lambda functions to the target groups.
+
+3. **Traffic Routing**:
+   - ALB evaluates incoming requests and routes them to the appropriate target group based on the rules you configure.
+
+4. **Health Checks**:
+   - ALB continuously monitors the health of targets and stops routing traffic to unhealthy targets.
+
+---
+
+### **Use Cases for ALB**
+1. **Web Applications**:
+   - Distribute traffic across multiple web servers for high availability and scalability.
+
+2. **Microservices Architecture**:
+   - Route traffic to different microservices based on URL paths or hostnames.
+
+3. **Containerized Applications**:
+   - Integrate with Amazon ECS or Kubernetes to load balance traffic for containerized apps.
+
+4. **Serverless Applications**:
+   - Route traffic to AWS Lambda functions for serverless workloads.
+
+5. **Multi-Tier Applications**:
+   - Route traffic to different tiers of your application (e.g., frontend, backend, APIs).
+
+---
+
+### **Example: Creating an ALB**
+1. Go to the **AWS Management Console**.
+2. Navigate to **EC2** > **Load Balancers** > **Create Load Balancer**.
+3. Select **Application Load Balancer**.
+4. Configure the ALB:
+   - Define listeners (e.g., HTTP on port 80).
+   - Select Availability Zones.
+5. Create target groups and register targets (e.g., EC2 instances).
+6. Configure routing rules (e.g., route `/api` to one target group and `/images` to another).
+7. Click **Create**.
+
+---
+
+### **ALB vs. Other Load Balancers in AWS**
+1. **Application Load Balancer (ALB)**:
+   - Best for HTTP/HTTPS traffic and advanced routing.
+   - Operates at Layer 7 (application layer).
+
+2. **Network Load Balancer (NLB)**:
+   - Best for TCP/UDP traffic and ultra-high performance.
+   - Operates at Layer 4 (transport layer).
+
+3. **Classic Load Balancer (CLB)**:
+   - Legacy load balancer for basic HTTP/HTTPS and TCP traffic.
+   - Operates at both Layer 4 and Layer 7.
+
+---
+
+### **Pricing**
+- ALB pricing is based on:
+  - **Load Balancer Capacity Units (LCUs)**: A metric that accounts for new connections, active connections, processed bytes, and rule evaluations.
+  - **Data Transfer**: Costs for data processed by the ALB.
+
+---
+
+### **Best Practices for Using ALB**
+1. Use **HTTPS** for secure communication.
+2. Enable **Cross-Zone Load Balancing** for even traffic distribution.
+3. Configure **Health Checks** to ensure traffic is routed only to healthy targets.
+4. Use **AWS WAF** with ALB to protect against web attacks.
+5. Monitor ALB metrics using **Amazon CloudWatch**.
+
+---
+
