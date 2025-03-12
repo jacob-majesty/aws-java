@@ -1,0 +1,5 @@
+services:
+  jmeter:
+    image: jacobmajesty1/aws-autoscale
+    environment:
+      - APP_DOMAIN=localhost
